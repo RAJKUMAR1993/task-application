@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Registration </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<style>
+span {
+  color:red;
+}
+</style>
+<body>
+
+<div class="container">
+  <h2>Registration</h2>
+  <form action="" id="form_id">
+    <div class="form-group">
+      <label for="email">First Name</label>
+      <input type="text" class="form-control" id="fname" placeholder="Enter first Name" name="firstname" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Middle Name</label>
+      <input type="text" class="form-control" id="mname" placeholder="Enter Middle Name" name="middlename" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Last Name</label>
+      <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lastname" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="Email" required>
+      
+    </div>
+    <div class="form-group">
+      <label for="Mobile">Mobile Number</label>
+      <input type="text" class="form-control" id="mobilenumber" placeholder="Enter Mobile Number" name="mobilenumber" required> 
+      
+    </div>
+    <p id="Message"></p>
+    <div class="form-group">
+      <label for="email">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" required>
+       <span id="Messag"> </span>
+    </div>
+   
+    <div class="form-group">
+      <label for="email">Confirm Password</label>
+      <input type="password" class="form-control" id="cpassword" placeholder="Enter Confirm Password" name="MobNum" required>
+       <span id="Messages"> </span>
+    </div>
+   
+    
+    <input type="button" value="Submit" class="btn btn-success" onclick="validate()">
+    
+</div>
+
+  </form>
+
+</body>
+</html>
+
+
+<script>
+  function validate() {
+    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+    var address = document.getElementById("email").value;
+   
+var a = document.getElementById("password").value;   
+  var b = document.getElementById("cpassword").value; 
+  //var num = /^([8-9]{1})([0-9]{7})/;
+var num = document.getElementById("mobilenumber").value;  
+
+  if(num == "") {  
+    document.getElementById("Message").innerHTML ="Please Enter Mobile Number";
+    return false;
+  }
+  if(isNaN(num)) {  
+    document.getElementById("Message").innerHTML ="Please Enter Numeric values";
+    return false;
+  }
+  
+  if(num.length<10) {
+    document.getElementById("Message").innerHTML ="Mobile Number must be 10 digits";
+    return false;
+  }
+  
+  if(num.length>10) {
+    document.getElementById("Message").innerHTML ="Mobile Number must be 10 digits ";
+    return false;
+  }
+ 
+ 
+
+  if(a == "") {  
+    document.getElementById("Messag").innerHTML ="Please Fill Password";
+    return false;
+  }
+  
+  if(a.length<5) {
+    document.getElementById("Messag").innerHTML ="Please Enter five characters ";
+    return false;
+  }
+  
+  if(a.length>20) {
+    document.getElementById("Messag").innerHTML ="Please Enter less than 20 characters ";
+    return false;
+  }
+  
+  if(a!=b){
+    document.getElementById("Messages").innerHTML ="Password Mismatch ";
+    return false;
+  }
+
+
+
+ if(reg.test(address) == false) {
+      alert('Invalid Email Address');
+      return false;
+    }
+ 
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+</script>
